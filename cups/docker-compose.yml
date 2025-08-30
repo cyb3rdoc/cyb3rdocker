@@ -1,0 +1,14 @@
+services:
+  cups:
+    image: cyb3rdoc/cups:latest
+    container_name: cups
+    hostname: cups
+    environment:
+      - TZ=UTC
+    ports:
+      - "631:631"
+    volumes:
+      - ./volumes/cups:/etc/cups
+      - /run/dbus:/run/dbus
+    privileged: true
+    restart: unless-stopped

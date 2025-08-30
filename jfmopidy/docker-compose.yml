@@ -1,0 +1,17 @@
+services:
+  jfmopidy:
+    image: cyb3rdoc/jfmopidy:latest
+    container_name: jfmopidy
+    hostname: jfmopidy
+    environment:
+      - TZ=UTC
+    ports:
+      - "6600:6600"
+      - "6680:6680"
+      - "5555:5555/udp"
+    volumes:
+      - ./volumes/mopidy-etc:/etc/mopidy
+      - ./volumes/mopidy-var:/var/lib/mopidy
+    devices:
+      - /dev/snd:/dev/snd
+    restart: unless-stopped

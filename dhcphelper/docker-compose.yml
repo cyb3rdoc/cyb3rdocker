@@ -1,0 +1,10 @@
+services:
+  dhcphelper:
+    image: cyb3rdoc/dhcphelper:latest
+    container_name: dhcphelper
+    hostname: dhcphelper
+    network_mode: host
+    environment:
+      - TZ=UTC
+      - IP=172.18.0.2
+    restart: always

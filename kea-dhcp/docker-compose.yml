@@ -1,0 +1,11 @@
+services:
+  kea-dhcp:
+    image: cyb3rdoc/kea-dhcp:latest
+    container_name: kea-dhcp
+    hostname: kea-dhcp
+    network_mode: host
+    environment:
+      - TZ=UTC
+    volumes:
+      - ./volumes/kea-dhcp/config:/etc/kea
+    restart: always
